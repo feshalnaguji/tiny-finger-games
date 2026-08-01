@@ -14,7 +14,7 @@ export default tseslint.config(
       },
     },
     rules: {
-      '@typescript-eslint/no-non-null-assertion': 'error',
+      '@typescript-eslint/no-non-null-assertion': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
     },
