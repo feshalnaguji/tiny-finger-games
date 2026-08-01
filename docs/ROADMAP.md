@@ -17,8 +17,14 @@ version it landed in.
 - ✅ **Sleepy Stars 🌙** — lullaby wind-down starfield with long soft chimes (v1.3)
 - ✅ **Counting Pond 🦆** — count to ten with splashes, quacks, and giant numerals (v2.0)
 - ✅ **Guess the Sound 🔊** — mystery-call listening game; wrong guesses teach (v2.0)
-- ✅ **Launch SEO** — 20 per-game landing pages, games hub, about + privacy pages, sitemap,
+- ✅ **Launch SEO** — per-game landing pages, games hub, about + privacy pages, sitemap,
   OG share images, JSON-LD, crawlable pre-boot content, `?game=` deep links (v2.0)
+- ✅ **Rain Maker 🌧️** — musical rain, growing puddles, earned rainbows (v2.1)
+- ✅ **Little Trains 🚂** — couple wagons to eight, confetti departure, toot-toot (v2.1)
+- ✅ **Dino Stomp 🦖** — roaring dinos and hatching baby-dino eggs (v2.1)
+- ✅ **Match Pairs 🎴** — four-card first memory game with animal calls (v2.1)
+- ✅ Audio polish: reworked duck/cat/dog/lion voices, softer car engine, loudness balance (v2.1)
+- ✅ Menu rows center at every width; launch ops checklist in docs/LAUNCH.md (v2.1)
 
 ## Next candidates
 
@@ -35,12 +41,9 @@ version it landed in.
 
 ## More ideas (unscoped)
 
-- **Rain maker** — tap the sky for rain with plip-plop notes; puddles grow; rainbows appear.
-- **Little trains** — connect wagons by tapping; the train chugs a rhythm as it rolls.
 - **Snow globe** — shake (device motion!) or tap to swirl snow around a cozy scene.
-- **Memory pairs** (2×2 → 2×3) — flip cards with animal sounds; endless gentle retries.
 - **Sticker book** — drag emoji stickers onto scenes; persists locally per device.
-- **Dino roar-off** — tap dinosaurs, they roar back louder (compressor keeps it safe).
+- **Match Pairs level-up** — grow to 6 cards (3 pairs) after repeated wins; keep 4 as default.
 - **Mirror dance** — a friendly blob mirrors your finger movements with trails and music.
 - **Parent stats page** — per-game play-time chart, all local, no telemetry ever.
 - **Configurable exit gesture** — corner choice / hold duration in the parent panel.

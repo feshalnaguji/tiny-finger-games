@@ -39,6 +39,7 @@ function seoHtml(): Plugin {
       ]);
       return html
         .replaceAll('%SITE_URL%', SITE_URL)
+        .replaceAll('%GAME_COUNT%', String(catalog.length))
         .replace('%GAME_LINKS%', gameLinks)
         .replace('%JSONLD%', jsonLd);
     },

@@ -131,8 +131,8 @@ export class AudioEngine {
   // ---------- effect voices ----------
 
   boom(): void {
-    this.tone({ freq: 120, freqTo: 45, wave: 'sine', dur: 0.7, vel: 0.8 });
-    this.noise({ dur: 0.5, vel: 0.5, filter: 'lowpass', freq: 400, freqTo: 80 });
+    this.tone({ freq: 120, freqTo: 45, wave: 'sine', dur: 0.7, vel: 0.65 });
+    this.noise({ dur: 0.5, vel: 0.4, filter: 'lowpass', freq: 400, freqTo: 80 });
   }
 
   whoosh(dir: 'up' | 'down' = 'up'): void {
@@ -160,11 +160,11 @@ export class AudioEngine {
   drum(kind: DrumKind): void {
     switch (kind) {
       case 'kick':
-        this.tone({ freq: 150, freqTo: 48, wave: 'sine', dur: 0.35, vel: 0.9 });
+        this.tone({ freq: 150, freqTo: 48, wave: 'sine', dur: 0.35, vel: 0.75 });
         break;
       case 'snare':
         this.tone({ freq: 185, wave: 'triangle', dur: 0.12, vel: 0.4 });
-        this.noise({ dur: 0.15, vel: 0.5, filter: 'highpass', freq: 1200 });
+        this.noise({ dur: 0.15, vel: 0.45, filter: 'highpass', freq: 1200 });
         break;
       case 'hat':
         this.noise({ dur: 0.06, vel: 0.35, filter: 'highpass', freq: 6000 });
@@ -181,39 +181,41 @@ export class AudioEngine {
   animal(kind: AnimalKind): void {
     switch (kind) {
       case 'cat':
+        // a rounder meow: triangle rise-then-fall with gentle vibrato
         this.tone({
-          freq: 780,
-          freqTo: 420,
-          wave: 'sine',
-          dur: 0.35,
-          vel: 0.4,
-          vibratoHz: 9,
-          vibratoDepth: 25,
-          attack: 0.08,
+          freq: 520,
+          freqTo: 880,
+          wave: 'triangle',
+          dur: 0.18,
+          vel: 0.35,
+          attack: 0.06,
         });
         this.tone({
-          freq: 700,
-          freqTo: 380,
-          wave: 'sine',
-          dur: 0.3,
-          vel: 0.35,
-          delay: 0.4,
-          vibratoHz: 9,
-          vibratoDepth: 25,
-          attack: 0.08,
+          freq: 860,
+          freqTo: 430,
+          wave: 'triangle',
+          dur: 0.4,
+          vel: 0.38,
+          delay: 0.16,
+          vibratoHz: 7,
+          vibratoDepth: 18,
+          attack: 0.02,
         });
         break;
       case 'dog':
-        this.tone({ freq: 260, freqTo: 150, wave: 'square', dur: 0.1, vel: 0.35, attack: 0.01 });
+        // woofs need a breathy edge: saw drop + a puff of band-passed noise
+        this.tone({ freq: 300, freqTo: 140, wave: 'sawtooth', dur: 0.11, vel: 0.35, attack: 0.01 });
+        this.noise({ dur: 0.07, vel: 0.22, filter: 'bandpass', freq: 700, q: 1.2 });
         this.tone({
-          freq: 240,
-          freqTo: 140,
-          wave: 'square',
-          dur: 0.1,
+          freq: 280,
+          freqTo: 130,
+          wave: 'sawtooth',
+          dur: 0.11,
           vel: 0.35,
-          delay: 0.18,
+          delay: 0.2,
           attack: 0.01,
         });
+        this.noise({ dur: 0.07, vel: 0.22, filter: 'bandpass', freq: 650, q: 1.2, delay: 0.2 });
         break;
       case 'cow':
         this.tone({
@@ -228,25 +230,19 @@ export class AudioEngine {
         });
         break;
       case 'duck':
+        // a proper quack: fast sawtooth pitch drop with a nasal noise bite
+        this.tone({ freq: 500, freqTo: 210, wave: 'sawtooth', dur: 0.13, vel: 0.34, attack: 0.01 });
+        this.noise({ dur: 0.07, vel: 0.14, filter: 'bandpass', freq: 1300, q: 2 });
         this.tone({
-          freq: 340,
-          freqTo: 300,
-          wave: 'square',
-          dur: 0.14,
+          freq: 470,
+          freqTo: 200,
+          wave: 'sawtooth',
+          dur: 0.13,
           vel: 0.3,
-          vibratoHz: 28,
-          vibratoDepth: 60,
+          delay: 0.19,
+          attack: 0.01,
         });
-        this.tone({
-          freq: 330,
-          freqTo: 290,
-          wave: 'square',
-          dur: 0.14,
-          vel: 0.3,
-          delay: 0.2,
-          vibratoHz: 28,
-          vibratoDepth: 60,
-        });
+        this.noise({ dur: 0.07, vel: 0.12, filter: 'bandpass', freq: 1250, q: 2, delay: 0.19 });
         break;
       case 'sheep':
         this.tone({
@@ -277,17 +273,18 @@ export class AudioEngine {
         }
         break;
       case 'lion':
+        // a tighter roar: growl sweep down with a shorter, darker noise bed
         this.tone({
-          freq: 110,
-          freqTo: 70,
+          freq: 130,
+          freqTo: 72,
           wave: 'sawtooth',
-          dur: 0.9,
-          vel: 0.45,
-          vibratoHz: 14,
-          vibratoDepth: 12,
-          attack: 0.12,
+          dur: 0.8,
+          vel: 0.42,
+          vibratoHz: 11,
+          vibratoDepth: 10,
+          attack: 0.1,
         });
-        this.noise({ dur: 0.8, vel: 0.3, filter: 'lowpass', freq: 500, freqTo: 200 });
+        this.noise({ dur: 0.65, vel: 0.22, filter: 'lowpass', freq: 380, freqTo: 140 });
         break;
     }
   }

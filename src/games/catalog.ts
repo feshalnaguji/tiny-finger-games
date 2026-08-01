@@ -26,6 +26,10 @@ export const catalog = [
   { id: 'sleepy-stars', title: 'Sleepy Stars', icon: '🌙', color: '#3949ab' },
   { id: 'counting-pond', title: 'Counting Pond', icon: '🦆', color: '#00897b' },
   { id: 'guess-the-sound', title: 'Guess the Sound', icon: '🔊', color: '#f9a825' },
+  { id: 'rain-maker', title: 'Rain Maker', icon: '🌧️', color: '#4a90d9' },
+  { id: 'little-trains', title: 'Little Trains', icon: '🚂', color: '#ef6c00' },
+  { id: 'dino-stomp', title: 'Dino Stomp', icon: '🦖', color: '#689f38' },
+  { id: 'match-pairs', title: 'Match Pairs', icon: '🎴', color: '#d81b60' },
 ] as const satisfies readonly GameMeta[];
 
 export type GameId = (typeof catalog)[number]['id'];

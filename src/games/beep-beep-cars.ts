@@ -87,9 +87,15 @@ export class BeepBeepCars implements Game {
       bounce: 0,
       lane,
     });
-    // little engine putt-putt
-    this.ctx.audio.note(40 + lane * 3, { wave: 'square', dur: 0.12, vel: 0.25 });
-    this.ctx.audio.note(40 + lane * 3, { wave: 'square', dur: 0.12, vel: 0.2, delay: 0.15 });
+    // little engine putt-putt-putt: three soft triangle chugs, not a buzz
+    for (let i = 0; i < 3; i++) {
+      this.ctx.audio.note(43 + lane * 2, {
+        wave: 'triangle',
+        dur: 0.08,
+        vel: 0.28 - i * 0.05,
+        delay: i * 0.11,
+      });
+    }
     this.ctx.bump();
   }
 

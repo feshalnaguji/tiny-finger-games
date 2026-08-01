@@ -26,6 +26,10 @@ const loaders: Record<GameId, () => Promise<Game>> = {
   'sleepy-stars': () => import('./sleepy-stars').then((m) => new m.SleepyStars()),
   'counting-pond': () => import('./counting-pond').then((m) => new m.CountingPond()),
   'guess-the-sound': () => import('./guess-the-sound').then((m) => new m.GuessTheSound()),
+  'rain-maker': () => import('./rain-maker').then((m) => new m.RainMaker()),
+  'little-trains': () => import('./little-trains').then((m) => new m.LittleTrains()),
+  'dino-stomp': () => import('./dino-stomp').then((m) => new m.DinoStomp()),
+  'match-pairs': () => import('./match-pairs').then((m) => new m.MatchPairs()),
 };
 
 export const games: GameDefinition[] = catalog.map((meta) => ({

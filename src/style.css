@@ -162,10 +162,13 @@ button {
 
 .menu__grid {
   flex: 1 1 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(9.5rem, 40vw), 1fr));
-  gap: 3vmin;
+  /* flex-wrap with centered rows: a partial last row sits centered instead of
+     ragged-left, so any game count looks intentional at any screen width */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-content: center;
+  gap: 3vmin;
   /* breathing room so scaled/glowing cards never touch the screen edges,
      and scroll (hidden scrollbar) instead of cropping on short screens */
   padding: 1.5vmin;
@@ -182,7 +185,9 @@ button {
 }
 
 .menu__card {
+  width: clamp(7rem, 17vmin, 10rem);
   aspect-ratio: 1;
+  flex: 0 0 auto;
   border-radius: 22%;
   display: flex;
   align-items: center;

@@ -1,7 +1,7 @@
 # Tiny Paws 🐾
 
-**A safe, fullscreen play site for toddlers (ages 1+): twenty free games behind a kid-lock, so
-little fingers can smash away without ever leaving the app. No ads, no accounts, no tracking.**
+**A safe, fullscreen play site for toddlers (ages 1+): twenty-four free games behind a kid-lock,
+so little fingers can smash away without ever leaving the app. No ads, no accounts, no tracking.**
 
 🎮 **Play it:** https://feshalnaguji.github.io/tiny-finger-games/
 
@@ -9,7 +9,7 @@ Inspired by keyboard-smash toys like tinyfingers.net — then pushed further in 
 a whole arcade instead of one toy, a real kid-lock instead of hope, and everything synthesized
 in the browser (no downloads, no ads, no accounts, no tracking, works offline).
 
-## The 20 games
+## The 24 games
 
 |     | Game             | What happens                                                                     |
 | --- | ---------------- | -------------------------------------------------------------------------------- |
@@ -33,6 +33,10 @@ in the browser (no downloads, no ads, no accounts, no tracking, works offline).
 | 🌙  | Sleepy Stars     | The wind-down screen: a still night sky where touched stars ring soft chimes     |
 | 🦆  | Counting Pond    | Tap and a duck hops in — "One!" "Two!" — count to ten with splashes              |
 | 🔊  | Guess the Sound  | A mystery call plays; find who said it — wrong guesses just introduce themselves |
+| 🌧️  | Rain Maker       | Tap the sky for musical rain; puddles grow and enough rain earns a rainbow       |
+| 🚂  | Little Trains    | Every tap couples on a wagon; eight wagons means a confetti departure            |
+| 🦖  | Dino Stomp       | Tap dinos for ear-safe roars; tap the ground to hatch squeaky baby dinos         |
+| 🎴  | Match Pairs      | Four cards, two animal pairs — matches celebrate, misses flip calmly back        |
 
 ✨ **Daily surprise:** every day one game wears a glowing badge on the menu — opening it starts
 with confetti and it plays with extra sparkle all day.

@@ -81,7 +81,7 @@ export class GardenFriends implements Game {
         const ty = bee.target.y + oy;
         bee.vx += (tx - bee.x) * 3 * dt;
         bee.vy += (ty - bee.y) * 3 * dt;
-        if (chance(dt * 0.5)) this.ctx.audio.sparkle();
+        if (chance(dt * 0.15)) this.ctx.audio.sparkle();
       } else {
         bee.vx += range(-40, 40) * dt;
         bee.vy += range(-40, 40) * dt;

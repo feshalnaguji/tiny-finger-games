@@ -191,10 +191,18 @@ export function renderHub(metas: readonly GameMeta[], site: SiteConfig): string 
     ['Music', ['rainbow-piano', 'drum-time']],
     [
       'Animals & nature',
-      ['animal-friends', 'guess-the-sound', 'little-aquarium', 'garden-friends', 'peekaboo'],
+      [
+        'animal-friends',
+        'guess-the-sound',
+        'dino-stomp',
+        'little-aquarium',
+        'garden-friends',
+        'rain-maker',
+        'peekaboo',
+      ],
     ],
-    ['Early learning', ['counting-pond', 'color-pop', 'first-words', 'shape-party']],
-    ['Vehicles & motion', ['beep-beep-cars', 'star-catcher', 'finger-paint']],
+    ['Early learning', ['counting-pond', 'color-pop', 'first-words', 'shape-party', 'match-pairs']],
+    ['Vehicles & motion', ['beep-beep-cars', 'little-trains', 'star-catcher', 'finger-paint']],
     ['Wind-down', ['sleepy-stars']],
   ];
   const byId = new Map(metas.map((m) => [m.id, m]));

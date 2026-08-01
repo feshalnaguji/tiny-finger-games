@@ -389,6 +389,91 @@ export const gameCopy: Record<GameId, GameCopy> = {
       'Reach ten ducks for a pond-wide celebration and a fresh start',
     ],
   },
+  'rain-maker': {
+    metaTitle: 'Rain Maker — Free Weather Game for Toddlers | Tiny Paws',
+    metaDescription:
+      'Tap the sky and rain falls with plip-plop musical notes; puddles grow, and enough rain earns a rainbow. Cozy weather your toddler controls, free.',
+    keywords: [
+      'rain game for kids',
+      'weather game for toddlers',
+      'rainbow game online free',
+      'calm sensory game',
+    ],
+    skills: ['cause and effect', 'weather concepts', 'gentle patience'],
+    ageRange: '1–4',
+    paragraphs: [
+      'Tap anywhere in the cloudy sky and rain begins to fall from that exact spot — slender blue drops that plip onto the grass with soft musical notes, each landing a tiny splash. Hold a finger down and you get a steady drizzle; sweep across the sky and you are conducting the weather. Down below, puddles form and grow where the rain lands, shimmering wider with every drop, which toddlers find quietly mesmerizing.',
+      'And then the payoff: make enough rain and a full six-band rainbow arcs across the valley with a chime and a drift of colored confetti, before slowly fading to make room for the next storm. It is the water-play loop — pour, puddle, wonder — without towels. Key presses summon rain bursts in surprising places, the clouds amble along on the wind, and like everything in Tiny Paws there is no goal you can miss: the weather is simply yours.',
+    ],
+    howToPlay: [
+      'Tap the sky — rain falls from that exact spot',
+      'Hold a finger down for a steady drizzle; watch puddles grow',
+      'Enough rain paints a rainbow across the whole valley',
+    ],
+  },
+  'little-trains': {
+    metaTitle: 'Little Trains — Free Train Game for Toddlers | Tiny Paws',
+    metaDescription:
+      'An engine chugs around the loop; every tap couples on another wagon with a clack. Fill the train to eight and it departs in confetti. Toot toot — free.',
+    keywords: [
+      'train game for toddlers',
+      'train games for kids online free',
+      'choo choo game for 2 year old',
+    ],
+    skills: ['counting', 'sequencing', 'vehicle vocabulary'],
+    ageRange: '1–4',
+    paragraphs: [
+      'A cheerful steam engine chugs endlessly around the valley loop, puffing little clouds past trees and a cottage. Tap anywhere and — clack — a wagon couples onto the back, each new one landing with a rising musical note, and the train grows longer and just a little faster. Tap the engine itself and it answers with the classic two-note toot-toot and an extra puff of steam, which is reliably the most-repeated move in the game.',
+      'Couple on the eighth wagon and the celebration begins: a whistle, a chime, confetti, and the full train accelerating proudly off the edge of the world — before a fresh engine rolls in to start the next train. Train-obsessed toddlers (a large and serious constituency) get their favorite thing in tap form, while the wagon-by-wagon build quietly rehearses counting and sequencing. Keyboard keys couple wagons too, so the laptop crowd conducts right along.',
+    ],
+    howToPlay: [
+      'Tap anywhere to couple another wagon onto the train',
+      'Tap the engine for a toot-toot and extra steam',
+      'Eight wagons means a confetti departure — then a new engine arrives',
+    ],
+  },
+  'dino-stomp': {
+    metaTitle: 'Dino Stomp — Free Dinosaur Game for Toddlers | Tiny Paws',
+    metaDescription:
+      'Dinosaurs stomp past a volcano; tap one for a mighty ear-safe roar, or tap the ground to hatch a squeaky baby dino from an egg. Free dinosaur fun.',
+    keywords: [
+      'dinosaur game for toddlers',
+      'dino games for kids free',
+      't-rex game for 2 year old',
+    ],
+    skills: ['cause and effect', 'size and scale', 'pretend play'],
+    ageRange: '1–4',
+    paragraphs: [
+      'A T-rex and a long-neck stomp back and forth across a prehistoric valley, palm trees swaying and a volcano smoking politely in the distance. Their footsteps land with soft thuds you can feel in the sound design. Tap a dinosaur and it rears up with a mighty roar — deep and rumbly, but passed through the same loudness limiter as everything in Tiny Paws, so it thrills without ever startling.',
+      'The secret second game is on the ground: tap the valley floor and an egg appears, wobbles, and cracks open into a tiny baby dinosaur who joins the parade with a squeaky little roar of its own and hearts over its head. Big roars and small squeaks, giant stomps and tiny steps — the size-and-scale contrast is half comedy, half early math. Dinosaur-phase toddlers (it comes for nearly all of them) will play this one to the bottom of the battery.',
+    ],
+    howToPlay: [
+      'Tap a dinosaur — it rears up and roars (ear-safe)',
+      'Tap the ground to lay an egg that hatches a squeaky baby dino',
+      'Any key summons more dinosaurs or more roars',
+    ],
+  },
+  'match-pairs': {
+    metaTitle: 'Match Pairs — Free Memory Game for Toddlers | Tiny Paws',
+    metaDescription:
+      'The gentlest memory game: four cards, two animal pairs, calls when they flip. Matches celebrate; misses just flip calmly back. Free, no failing.',
+    keywords: [
+      'memory game for toddlers',
+      'matching pairs game free',
+      'first memory card game kids',
+    ],
+    skills: ['working memory', 'matching', 'turn-taking'],
+    ageRange: '2–4',
+    paragraphs: [
+      'Four paw-print cards sit face down — behind them, two pairs of animals. Flip a card and it squash-turns to reveal a cat, a duck, a frog, who announces itself with its call. Flip a second: if it matches, both cards dance, confetti flies, and the site cheers "Two cats! A pair!" before dealing a fresh round. If it does not match, nothing bad happens at all — a beat to look, a tiny giggle, and both cards flip calmly back for another try.',
+      'This is the beloved memory game stripped to its very first form: with only four cards, even a two-year-old stumbles into matches quickly, and the animal calls give memory a sound to hold onto, not just a picture. There are no scores, no turns to lose, and no wrong way to play — flip randomly at two, strategize solemnly at four. Keyboard keys flip face-down cards for laptop players.',
+    ],
+    howToPlay: [
+      'Flip a card to meet the animal behind it',
+      'Find both of a kind — they celebrate with confetti and a cheer',
+      'No match? A little giggle and both flip gently back',
+    ],
+  },
   'guess-the-sound': {
     metaTitle: 'Guess the Sound — Free Animal Sounds Guessing Game | Tiny Paws',
     metaDescription:
