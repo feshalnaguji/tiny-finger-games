@@ -15,6 +15,10 @@ version it landed in.
 - ✅ **First Words 🍎** — tap objects, hear their names (v1.3)
 - ✅ **Color Pop 🌈** — find-the-color with celebration, zero failure (v1.3)
 - ✅ **Sleepy Stars 🌙** — lullaby wind-down starfield with long soft chimes (v1.3)
+- ✅ **Counting Pond 🦆** — count to ten with splashes, quacks, and giant numerals (v2.0)
+- ✅ **Guess the Sound 🔊** — mystery-call listening game; wrong guesses teach (v2.0)
+- ✅ **Launch SEO** — 20 per-game landing pages, games hub, about + privacy pages, sitemap,
+  OG share images, JSON-LD, crawlable pre-boot content, `?game=` deep links (v2.0)
 
 ## Next candidates
 
@@ -31,8 +35,6 @@ version it landed in.
 
 ## More ideas (unscoped)
 
-- **Guess the sound** — an animal call plays, the matching animal celebrates when found.
-- **Counting pond** — tap ducks into a pond and hear "one, two, three…" (speech exists).
 - **Rain maker** — tap the sky for rain with plip-plop notes; puddles grow; rainbows appear.
 - **Little trains** — connect wagons by tapping; the train chugs a rhythm as it rolls.
 - **Snow globe** — shake (device motion!) or tap to swirl snow around a cozy scene.

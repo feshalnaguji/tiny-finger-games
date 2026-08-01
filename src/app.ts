@@ -52,6 +52,8 @@ export class App {
   private dailyActive = false;
 
   constructor(private root: HTMLElement) {
+    // clear the pre-boot/no-JS content the moment the app takes over
+    root.replaceChildren();
     this.input = new InputManager(root);
     this.appScope = this.input.createScope();
     this.menu = new Menu(
@@ -129,6 +131,10 @@ export class App {
     this.wakeLock.acquire();
     this.stats.startSession();
     this.audio.chime();
+    // ?game=<id> deep link from the per-game landing pages
+    const wanted = new URLSearchParams(location.search).get('game');
+    const def = wanted ? games.find((g) => g.meta.id === wanted) : undefined;
+    if (def) void this.openGame(def);
   }
 
   private async openGame(def: GameDefinition): Promise<void> {

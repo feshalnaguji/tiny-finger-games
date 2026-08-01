@@ -1,7 +1,7 @@
 # Tiny Paws 🐾
 
-**A safe, fullscreen play site for toddlers (ages 1+): eighteen mini-games behind a kid-lock, so
-little fingers can smash away without ever leaving the app.**
+**A safe, fullscreen play site for toddlers (ages 1+): twenty free games behind a kid-lock, so
+little fingers can smash away without ever leaving the app. No ads, no accounts, no tracking.**
 
 🎮 **Play it:** https://feshalnaguji.github.io/tiny-finger-games/
 
@@ -9,28 +9,30 @@ Inspired by keyboard-smash toys like tinyfingers.net — then pushed further in 
 a whole arcade instead of one toy, a real kid-lock instead of hope, and everything synthesized
 in the browser (no downloads, no ads, no accounts, no tracking, works offline).
 
-## The 18 games
+## The 20 games
 
-|     | Game             | What happens                                                                   |
-| --- | ---------------- | ------------------------------------------------------------------------------ |
-| 🫧  | Bubble Pop       | Bubbles drift up; tap or sweep to pop them (pitch matches size)                |
-| 🎹  | Rainbow Piano    | 8 rainbow bars, one octave of C major — drag for glissandos, keys work too     |
-| 🥁  | Drum Time        | Five giant pads: kick, snare, hat, woodblock, shaker — fully multi-touch       |
-| 🐮  | Animal Friends   | Tap an animal, hear its call and name; positions never move (spatial memory)   |
-| 🚀  | Space Smash      | Any key or tap spawns rockets, planets, aliens, or giant spoken letters        |
-| 🎨  | Finger Paint     | Every finger is a rainbow brush that plays notes; strokes fade by themselves   |
-| 🎆  | Fireworks        | Tap the sky, a shell flies to that exact spot: spheres, rings, hearts, willows |
-| 🚪  | Peekaboo         | Four doors, somebody new behind each — object permanence as a game             |
-| 🐠  | Little Aquarium  | The calm one: tap fish to delight them, tap water to sprinkle food             |
-| 👹  | Feed the Monster | Eyes follow your finger; fruit flies into its mouth; occasional tiny burps     |
-| ⭐  | Shape Party      | Match the dashed outline; wrong shapes just jiggle happily — never a buzzer    |
-| 🌠  | Star Catcher     | Your finger becomes a comet; swept stars play a rising melody                  |
-| 🚗  | Beep Beep Cars   | Tap to send vehicles driving across a sunny road; tap them back for honks      |
-| 🍬  | Pop Pad          | A pop-it fidget board with pitch-mapped pops; pop them all for confetti        |
-| 🌼  | Garden Friends   | Plant flowers with a tap; bees and a butterfly fly over to visit them          |
-| 🍎  | First Words      | Big everyday things that say their name when tapped — first vocabulary         |
-| 🌈  | Color Pop        | "Find the blue ones!" — touch the target color and it celebrates; no failing   |
-| 🌙  | Sleepy Stars     | The wind-down screen: a still night sky where touched stars ring soft chimes   |
+|     | Game             | What happens                                                                     |
+| --- | ---------------- | -------------------------------------------------------------------------------- |
+| 🫧  | Bubble Pop       | Bubbles drift up; tap or sweep to pop them (pitch matches size)                  |
+| 🎹  | Rainbow Piano    | 8 rainbow bars, one octave of C major — drag for glissandos, keys work too       |
+| 🥁  | Drum Time        | Five giant pads: kick, snare, hat, woodblock, shaker — fully multi-touch         |
+| 🐮  | Animal Friends   | Tap an animal, hear its call and name; positions never move (spatial memory)     |
+| 🚀  | Space Smash      | Any key or tap spawns rockets, planets, aliens, or giant spoken letters          |
+| 🎨  | Finger Paint     | Every finger is a rainbow brush that plays notes; strokes fade by themselves     |
+| 🎆  | Fireworks        | Tap the sky, a shell flies to that exact spot: spheres, rings, hearts, willows   |
+| 🚪  | Peekaboo         | Four doors, somebody new behind each — object permanence as a game               |
+| 🐠  | Little Aquarium  | The calm one: tap fish to delight them, tap water to sprinkle food               |
+| 👹  | Feed the Monster | Eyes follow your finger; fruit flies into its mouth; occasional tiny burps       |
+| ⭐  | Shape Party      | Match the dashed outline; wrong shapes just jiggle happily — never a buzzer      |
+| 🌠  | Star Catcher     | Your finger becomes a comet; swept stars play a rising melody                    |
+| 🚗  | Beep Beep Cars   | Tap to send vehicles driving across a sunny road; tap them back for honks        |
+| 🍬  | Pop Pad          | A pop-it fidget board with pitch-mapped pops; pop them all for confetti          |
+| 🌼  | Garden Friends   | Plant flowers with a tap; bees and a butterfly fly over to visit them            |
+| 🍎  | First Words      | Big everyday things that say their name when tapped — first vocabulary           |
+| 🌈  | Color Pop        | "Find the blue ones!" — touch the target color and it celebrates; no failing     |
+| 🌙  | Sleepy Stars     | The wind-down screen: a still night sky where touched stars ring soft chimes     |
+| 🦆  | Counting Pond    | Tap and a duck hops in — "One!" "Two!" — count to ten with splashes              |
+| 🔊  | Guess the Sound  | A mystery call plays; find who said it — wrong guesses just introduce themselves |
 
 ✨ **Daily surprise:** every day one game wears a glowing badge on the menu — opening it starts
 with confetti and it plays with extra sparkle all day.

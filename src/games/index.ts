@@ -1,80 +1,34 @@
-import type { GameDefinition } from './types';
+import { catalog, type GameId } from './catalog';
+import type { Game, GameDefinition } from './types';
 
 /**
- * The full arcade. Menu cards render from meta instantly; game code lazy-loads
- * on first tap so each game is its own chunk.
+ * Loader per game id — `Record<GameId, ...>` makes a missing loader a compile
+ * error whenever a game is added to the catalog. Each import is its own chunk.
  */
-export const games: GameDefinition[] = [
-  {
-    meta: { id: 'bubble-pop', title: 'Bubble Pop', icon: '🫧', color: '#4fc3f7' },
-    load: () => import('./bubble-pop').then((m) => new m.BubblePop()),
-  },
-  {
-    meta: { id: 'rainbow-piano', title: 'Rainbow Piano', icon: '🎹', color: '#f06292' },
-    load: () => import('./rainbow-piano').then((m) => new m.RainbowPiano()),
-  },
-  {
-    meta: { id: 'drum-time', title: 'Drum Time', icon: '🥁', color: '#ef5350' },
-    load: () => import('./drum-time').then((m) => new m.DrumTime()),
-  },
-  {
-    meta: { id: 'animal-friends', title: 'Animal Friends', icon: '🐮', color: '#9ccc65' },
-    load: () => import('./animal-friends').then((m) => new m.AnimalFriends()),
-  },
-  {
-    meta: { id: 'space-smash', title: 'Space Smash', icon: '🚀', color: '#7e57c2' },
-    load: () => import('./space-smash').then((m) => new m.SpaceSmash()),
-  },
-  {
-    meta: { id: 'finger-paint', title: 'Finger Paint', icon: '🎨', color: '#ffb74d' },
-    load: () => import('./finger-paint').then((m) => new m.FingerPaint()),
-  },
-  {
-    meta: { id: 'fireworks', title: 'Fireworks', icon: '🎆', color: '#ff7043' },
-    load: () => import('./fireworks').then((m) => new m.Fireworks()),
-  },
-  {
-    meta: { id: 'peekaboo', title: 'Peekaboo', icon: '🚪', color: '#8d6e63' },
-    load: () => import('./peekaboo').then((m) => new m.Peekaboo()),
-  },
-  {
-    meta: { id: 'little-aquarium', title: 'Little Aquarium', icon: '🐠', color: '#26c6da' },
-    load: () => import('./little-aquarium').then((m) => new m.LittleAquarium()),
-  },
-  {
-    meta: { id: 'feed-the-monster', title: 'Feed the Monster', icon: '👹', color: '#ab47bc' },
-    load: () => import('./feed-the-monster').then((m) => new m.FeedTheMonster()),
-  },
-  {
-    meta: { id: 'shape-party', title: 'Shape Party', icon: '💠', color: '#26a69a' },
-    load: () => import('./shape-party').then((m) => new m.ShapeParty()),
-  },
-  {
-    meta: { id: 'star-catcher', title: 'Star Catcher', icon: '🌠', color: '#5c6bc0' },
-    load: () => import('./star-catcher').then((m) => new m.StarCatcher()),
-  },
-  {
-    meta: { id: 'beep-beep-cars', title: 'Beep Beep Cars', icon: '🚗', color: '#78909c' },
-    load: () => import('./beep-beep-cars').then((m) => new m.BeepBeepCars()),
-  },
-  {
-    meta: { id: 'pop-pad', title: 'Pop Pad', icon: '🍬', color: '#ec407a' },
-    load: () => import('./pop-pad').then((m) => new m.PopPad()),
-  },
-  {
-    meta: { id: 'garden-friends', title: 'Garden Friends', icon: '🌼', color: '#9ccc65' },
-    load: () => import('./garden-friends').then((m) => new m.GardenFriends()),
-  },
-  {
-    meta: { id: 'first-words', title: 'First Words', icon: '🍎', color: '#26a69a' },
-    load: () => import('./first-words').then((m) => new m.FirstWords()),
-  },
-  {
-    meta: { id: 'color-pop', title: 'Color Pop', icon: '🌈', color: '#ab47bc' },
-    load: () => import('./color-pop').then((m) => new m.ColorPop()),
-  },
-  {
-    meta: { id: 'sleepy-stars', title: 'Sleepy Stars', icon: '🌙', color: '#3949ab' },
-    load: () => import('./sleepy-stars').then((m) => new m.SleepyStars()),
-  },
-];
+const loaders: Record<GameId, () => Promise<Game>> = {
+  'bubble-pop': () => import('./bubble-pop').then((m) => new m.BubblePop()),
+  'rainbow-piano': () => import('./rainbow-piano').then((m) => new m.RainbowPiano()),
+  'drum-time': () => import('./drum-time').then((m) => new m.DrumTime()),
+  'animal-friends': () => import('./animal-friends').then((m) => new m.AnimalFriends()),
+  'space-smash': () => import('./space-smash').then((m) => new m.SpaceSmash()),
+  'finger-paint': () => import('./finger-paint').then((m) => new m.FingerPaint()),
+  fireworks: () => import('./fireworks').then((m) => new m.Fireworks()),
+  peekaboo: () => import('./peekaboo').then((m) => new m.Peekaboo()),
+  'little-aquarium': () => import('./little-aquarium').then((m) => new m.LittleAquarium()),
+  'feed-the-monster': () => import('./feed-the-monster').then((m) => new m.FeedTheMonster()),
+  'shape-party': () => import('./shape-party').then((m) => new m.ShapeParty()),
+  'star-catcher': () => import('./star-catcher').then((m) => new m.StarCatcher()),
+  'beep-beep-cars': () => import('./beep-beep-cars').then((m) => new m.BeepBeepCars()),
+  'pop-pad': () => import('./pop-pad').then((m) => new m.PopPad()),
+  'garden-friends': () => import('./garden-friends').then((m) => new m.GardenFriends()),
+  'first-words': () => import('./first-words').then((m) => new m.FirstWords()),
+  'color-pop': () => import('./color-pop').then((m) => new m.ColorPop()),
+  'sleepy-stars': () => import('./sleepy-stars').then((m) => new m.SleepyStars()),
+  'counting-pond': () => import('./counting-pond').then((m) => new m.CountingPond()),
+  'guess-the-sound': () => import('./guess-the-sound').then((m) => new m.GuessTheSound()),
+};
+
+export const games: GameDefinition[] = catalog.map((meta) => ({
+  meta,
+  load: loaders[meta.id],
+}));

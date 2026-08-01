@@ -50,6 +50,39 @@ button {
   overflow: hidden;
 }
 
+/* Pre-boot / no-JS content — replaced the instant the app mounts */
+.preboot {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  padding: 8vmin 6vmin;
+  background: linear-gradient(160deg, #2a1a5e 0%, #4527a0 55%, #7b1fa2 100%);
+}
+
+.preboot h1 {
+  font-size: clamp(1.5rem, 5vmin, 2.4rem);
+  margin-bottom: 1rem;
+}
+
+.preboot p {
+  max-width: 42rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  opacity: 0.92;
+}
+
+.preboot ul {
+  columns: 2;
+  max-width: 42rem;
+  padding-left: 1.4rem;
+  margin-bottom: 1rem;
+  line-height: 1.9;
+}
+
+.preboot a {
+  color: #ffd54f;
+}
+
 /* ---------- Shared screen container ---------- */
 .screen {
   position: absolute;

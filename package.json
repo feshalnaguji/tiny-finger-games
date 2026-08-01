@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Tiny Paws — a fullscreen, kid-locked play site with 12 mini-games for toddlers (ages 1+).",
+  "description": "Tiny Paws — a fullscreen, kid-locked play site with 20 free games for toddlers (ages 1-4). No ads, no tracking.",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -11,7 +11,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-seo.ts",
+    "seo": "node scripts/generate-seo.ts",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
