@@ -55,7 +55,6 @@ version it landed in.
 ## More ideas (unscoped)
 
 - **Snow globe** — shake (device motion!) or tap to swirl snow around a cozy scene.
-- **Sticker book** — drag emoji stickers onto scenes; persists locally per device.
 - **Match Pairs level-up** — grow to 6 cards (3 pairs) after repeated wins; keep 4 as default.
 - **Mirror dance** — a friendly blob mirrors your finger movements with trails and music.
 - **Parent stats page** — per-game play-time chart, all local, no telemetry ever.
