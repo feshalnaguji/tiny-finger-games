@@ -1,5 +1,6 @@
 import { AudioEngine } from './engine/audio';
 import { CanvasLayer } from './engine/canvas';
+import { dailyIndex } from './engine/daily';
 import { InputManager, type InputScope } from './engine/input';
 import { ParticleSystem } from './engine/particles';
 import { SettingsStore, type SettingsSnapshot } from './engine/settings';
@@ -42,16 +43,23 @@ export class App {
   private activeCtx: GameContext | null = null;
   private paused = false;
   private lastT = 0;
+  /** Game-of-the-day: extra confetti and a little opening celebration. */
+  private dailyId = games[dailyIndex(games.length)]?.meta.id ?? null;
+  private dailyActive = false;
 
   constructor(private root: HTMLElement) {
     this.input = new InputManager(root);
     this.appScope = this.input.createScope();
-    this.menu = new Menu(games, {
-      onBegin: () => {
-        this.begin();
+    this.menu = new Menu(
+      games,
+      {
+        onBegin: () => {
+          this.begin();
+        },
+        onPick: (def) => void this.openGame(def),
       },
-      onPick: (def) => void this.openGame(def),
-    });
+      this.dailyId,
+    );
     this.panel = new ParentPanel(this.settings, this.stats, games, {
       onResume: () => {
         this.closePanel();
@@ -145,6 +153,21 @@ export class App {
     this.activeScope = scope;
     this.activeCtx = ctx;
     game.init(ctx);
+    this.dailyActive = def.meta.id === this.dailyId;
+    this.applyParticleIntensity();
+    if (this.dailyActive) {
+      this.audio.sparkle();
+      this.particles.burst({
+        x: ctx.width / 2,
+        y: ctx.height / 3,
+        count: 40,
+        colors: ['#ffd54f', '#4dd0e1', '#f06292', '#aed581', '#ffffff'],
+        speed: [80, 320],
+        size: [3, 7],
+        ttl: [0.6, 1.4],
+        gravity: 240,
+      });
+    }
     this.hud.show();
     this.hud.onHome = () => {
       this.goHome();
@@ -163,6 +186,8 @@ export class App {
     this.activeGame = null;
     this.activeScope = null;
     this.activeCtx = null;
+    this.dailyActive = false;
+    this.applyParticleIntensity();
     this.gameHost.innerHTML = '';
     this.gameHost.style.display = 'none';
     this.particles.clear();
@@ -259,8 +284,13 @@ export class App {
   private applySettings(s: Readonly<SettingsSnapshot>): void {
     this.audio.setMuted(!s.sound);
     this.audio.speechOn = s.speech;
-    this.particles.intensity = s.calm ? 0.5 : 1;
+    this.applyParticleIntensity();
     document.body.classList.toggle('calm', s.calm);
+  }
+
+  private applyParticleIntensity(): void {
+    const base = this.settings.snapshot.calm ? 0.5 : 1;
+    this.particles.intensity = base * (this.dailyActive ? 1.5 : 1);
   }
 
   // ---------- the loop ----------

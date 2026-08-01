@@ -53,4 +53,16 @@ export const games: GameDefinition[] = [
     meta: { id: 'star-catcher', title: 'Star Catcher', icon: '🌠', color: '#5c6bc0' },
     load: () => import('./star-catcher').then((m) => new m.StarCatcher()),
   },
+  {
+    meta: { id: 'beep-beep-cars', title: 'Beep Beep Cars', icon: '🚗', color: '#78909c' },
+    load: () => import('./beep-beep-cars').then((m) => new m.BeepBeepCars()),
+  },
+  {
+    meta: { id: 'pop-pad', title: 'Pop Pad', icon: '🍬', color: '#ec407a' },
+    load: () => import('./pop-pad').then((m) => new m.PopPad()),
+  },
+  {
+    meta: { id: 'garden-friends', title: 'Garden Friends', icon: '🌼', color: '#9ccc65' },
+    load: () => import('./garden-friends').then((m) => new m.GardenFriends()),
+  },
 ];

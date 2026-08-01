@@ -169,6 +169,41 @@ body.calm .splash__play {
   animation: none;
 }
 
+/* today's surprise card */
+.menu__card--daily {
+  position: relative;
+  box-shadow:
+    0 0 0 0.45vmin rgb(255 213 79 / 0.9),
+    0 8px 30px rgb(255 193 7 / 0.45),
+    inset 0 -5px 14px rgb(0 0 0 / 0.18),
+    inset 0 5px 14px rgb(255 255 255 / 0.28);
+  animation: card-breathe 1.8s ease-in-out infinite;
+}
+
+.menu__card-badge {
+  position: absolute;
+  top: -0.4rem;
+  right: -0.2rem;
+  font-size: 0.45em;
+  animation: badge-twinkle 1.4s ease-in-out infinite;
+}
+
+@keyframes badge-twinkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3) rotate(15deg);
+    opacity: 0.75;
+  }
+}
+
+body.calm .menu__card-badge {
+  animation: none;
+}
+
 /* ---------- Game host ---------- */
 .game-host {
   position: absolute;

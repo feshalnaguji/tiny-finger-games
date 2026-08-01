@@ -14,6 +14,7 @@ export class Menu {
   constructor(
     private defs: GameDefinition[],
     private callbacks: MenuCallbacks,
+    private dailyId: string | null = null,
   ) {
     this.el = document.createElement('div');
     this.el.className = 'screen';
@@ -82,6 +83,14 @@ export class Menu {
       card.className = 'menu__card';
       card.setAttribute('aria-label', def.meta.title);
       card.textContent = def.meta.icon;
+      if (def.meta.id === this.dailyId) {
+        card.classList.add('menu__card--daily');
+        card.setAttribute('aria-label', `${def.meta.title} — today's surprise!`);
+        const badge = document.createElement('span');
+        badge.className = 'menu__card-badge';
+        badge.textContent = '✨';
+        card.appendChild(badge);
+      }
       card.style.background = `radial-gradient(circle at 32% 28%, ${def.meta.color}, color-mix(in srgb, ${def.meta.color} 55%, #1a1145))`;
       card.style.animationDelay = `${(i % 6) * 0.25}s`;
       card.addEventListener('pointerdown', () => {

@@ -1,6 +1,6 @@
 # Tiny Paws 🐾
 
-**A safe, fullscreen play site for toddlers (ages 1+): twelve mini-games behind a kid-lock, so
+**A safe, fullscreen play site for toddlers (ages 1+): fifteen mini-games behind a kid-lock, so
 little fingers can smash away without ever leaving the app.**
 
 🎮 **Play it:** https://feshalnaguji.github.io/tiny-finger-games/
@@ -9,7 +9,7 @@ Inspired by keyboard-smash toys like tinyfingers.net — then pushed further in 
 a whole arcade instead of one toy, a real kid-lock instead of hope, and everything synthesized
 in the browser (no downloads, no ads, no accounts, no tracking, works offline).
 
-## The 12 games
+## The 15 games
 
 |     | Game             | What happens                                                                   |
 | --- | ---------------- | ------------------------------------------------------------------------------ |
@@ -25,6 +25,12 @@ in the browser (no downloads, no ads, no accounts, no tracking, works offline).
 | 👹  | Feed the Monster | Eyes follow your finger; fruit flies into its mouth; occasional tiny burps     |
 | ⭐  | Shape Party      | Match the dashed outline; wrong shapes just jiggle happily — never a buzzer    |
 | 🌠  | Star Catcher     | Your finger becomes a comet; swept stars play a rising melody                  |
+| 🚗  | Beep Beep Cars   | Tap to send vehicles driving across a sunny road; tap them back for honks      |
+| 🍬  | Pop Pad          | A pop-it fidget board with pitch-mapped pops; pop them all for confetti        |
+| 🌼  | Garden Friends   | Plant flowers with a tap; bees and a butterfly fly over to visit them          |
+
+✨ **Daily surprise:** every day one game wears a glowing badge on the menu — opening it starts
+with confetti and it plays with extra sparkle all day.
 
 Design rules for every game: **no reading, no failure states, no timers, no scores.** Every input
 gets a response within one frame. Full multi-touch. Touch targets over 2 cm. **Every game is also
