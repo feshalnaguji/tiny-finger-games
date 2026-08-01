@@ -41,6 +41,12 @@ export class Fireworks implements Game {
       }
     });
     ctx.input.onUp((p) => this.held.delete(p.id));
+    // any key launches a shell at a random spot in the sky
+    ctx.input.onKey(() => {
+      const w = this.layer.width || 400;
+      const h = this.layer.height || 400;
+      this.launch(w * (0.1 + Math.random() * 0.8), h * (0.08 + Math.random() * 0.55));
+    });
   }
 
   update(dt: number): void {
@@ -82,6 +88,7 @@ export class Fireworks implements Game {
   }
 
   private launch(x: number, y: number): void {
+    if (this.shells.length >= 40) this.shells.shift();
     const h = this.layer.height || 600;
     const targetY = Math.min(y, h * 0.85);
     this.shells.push({

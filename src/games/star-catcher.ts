@@ -53,6 +53,19 @@ export class StarCatcher implements Game {
       this.trails.delete(p.id);
       if (trail) this.trails.set(-p.id - 1000, trail);
     });
+    // any key catches the lowest star with the same rising melody
+    ctx.input.onKey(() => {
+      let lowest = -1;
+      for (let i = 0; i < this.stars.length; i++) {
+        if (lowest === -1 || this.stars[i]!.y > this.stars[lowest]!.y) lowest = i;
+      }
+      if (lowest === -1) {
+        this.ctx.audio.sparkle();
+        return;
+      }
+      const s = this.stars[lowest]!;
+      this.sweep(s.x, s.y);
+    });
   }
 
   update(dt: number): void {

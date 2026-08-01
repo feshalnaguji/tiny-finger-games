@@ -82,6 +82,9 @@ export class InputManager {
 }
 
 export class InputScope {
+  /** The app disables the active game's scope while paused (parent panel, tab hidden). */
+  enabled = true;
+
   private downFns: PointerFn[] = [];
   private moveFns: PointerFn[] = [];
   private upFns: PointerFn[] = [];
@@ -106,11 +109,13 @@ export class InputScope {
   }
 
   dispatchPointer(kind: 'down' | 'move' | 'up', p: PointerInfo): void {
+    if (!this.enabled) return;
     const fns = kind === 'down' ? this.downFns : kind === 'move' ? this.moveFns : this.upFns;
     for (const fn of fns) fn(p);
   }
 
   dispatchKey(k: KeyInfo): void {
+    if (!this.enabled) return;
     for (const fn of this.keyFns) fn(k);
   }
 

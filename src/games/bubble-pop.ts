@@ -35,6 +35,12 @@ export class BubblePop implements Game {
       if (this.held.has(p.id)) this.tryPop(p.x, p.y);
     });
     ctx.input.onUp((p) => this.held.delete(p.id));
+    // keyboard smashing pops bubbles too — every game is playable by tiny keyboardists
+    ctx.input.onKey(() => {
+      const i = Math.floor(Math.random() * this.bubbles.length);
+      const b = this.bubbles[i];
+      if (b) this.popAt(i, b);
+    });
 
     for (let i = 0; i < MIN_BUBBLES; i++) this.spawn(range(0, this.layer.height));
   }
@@ -91,13 +97,16 @@ export class BubblePop implements Game {
       const dx = x - b.x;
       const dy = y - b.y;
       if (dx * dx + dy * dy <= (b.r + 14) * (b.r + 14)) {
-        this.bubbles.splice(i, 1);
-        const sizeNorm = Math.min(1, b.r / 70);
-        this.ctx.audio.pop(sizeNorm);
-        this.splash(b, 14);
-        this.ctx.bump();
+        this.popAt(i, b);
       }
     }
+  }
+
+  private popAt(i: number, b: Bubble): void {
+    this.bubbles.splice(i, 1);
+    this.ctx.audio.pop(Math.min(1, b.r / 70));
+    this.splash(b, 14);
+    this.ctx.bump();
   }
 
   private splash(b: Bubble, count: number): void {

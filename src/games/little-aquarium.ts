@@ -83,6 +83,21 @@ export class LittleAquarium implements Game {
         this.ctx.audio.pop(0.15);
       }
     });
+    // any key sprinkles food from the surface — fish come running
+    ctx.input.onKey(() => {
+      const w = this.layer.width || 400;
+      const x = w * (0.1 + Math.random() * 0.8);
+      for (let i = 0; i < 3; i++) {
+        this.food.push({
+          x: x + range(-25, 25),
+          y: range(10, 60),
+          vy: range(28, 55),
+          eaten: false,
+        });
+      }
+      this.ctx.audio.pop(0.15);
+      this.ctx.bump();
+    });
   }
 
   update(dt: number): void {
@@ -98,6 +113,7 @@ export class LittleAquarium implements Game {
 
     for (const f of this.food) f.y += f.vy * dt;
     this.food = this.food.filter((f) => !f.eaten && f.y < h + 10);
+    if (this.food.length > 80) this.food.splice(0, this.food.length - 80);
 
     for (const fish of this.fish) {
       fish.wigglePhase += dt * (3 + fish.excite * 6);

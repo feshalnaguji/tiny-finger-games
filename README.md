@@ -27,7 +27,10 @@ in the browser (no downloads, no ads, no accounts, no tracking, works offline).
 | 🌠  | Star Catcher     | Your finger becomes a comet; swept stars play a rising melody                  |
 
 Design rules for every game: **no reading, no failure states, no timers, no scores.** Every input
-gets a response within one frame. Full multi-touch. Touch targets over 2 cm.
+gets a response within one frame. Full multi-touch. Touch targets over 2 cm. **Every game is also
+fully keyboard-playable** — smashing any key pops a bubble, launches a firework, opens a door,
+feeds the monster — so the youngest keyboard-smashers get the whole arcade, and even the menu
+sings back when keys are pressed.
 
 ## The kid-lock 🔒
 

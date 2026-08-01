@@ -43,18 +43,28 @@ export class ShapeParty implements Game {
 
     ctx.input.onDown((p) => {
       const f = this.floaterAt(p.x, p.y);
-      if (!f || f.snapping > 0) return;
-      this.ctx.bump();
-      if (f.kind === this.target) {
-        f.snapping = 0.0001;
-        f.fromX = f.x;
-        f.fromY = f.y;
-        this.ctx.audio.chime();
-      } else {
-        f.jiggle = 1;
-        this.ctx.audio.pop(0.4);
-      }
+      if (f) this.poke(f);
     });
+    // any key pokes a random shape — sometimes it's the match, always it's fun
+    ctx.input.onKey(() => {
+      const free = this.floaters.filter((f) => f.snapping === 0);
+      const f = free[Math.floor(Math.random() * free.length)];
+      if (f) this.poke(f);
+    });
+  }
+
+  private poke(f: Floater): void {
+    if (f.snapping > 0) return;
+    this.ctx.bump();
+    if (f.kind === this.target) {
+      f.snapping = 0.0001;
+      f.fromX = f.x;
+      f.fromY = f.y;
+      this.ctx.audio.chime();
+    } else {
+      f.jiggle = 1;
+      this.ctx.audio.pop(0.4);
+    }
   }
 
   update(dt: number): void {

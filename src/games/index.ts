@@ -46,7 +46,7 @@ export const games: GameDefinition[] = [
     load: () => import('./feed-the-monster').then((m) => new m.FeedTheMonster()),
   },
   {
-    meta: { id: 'shape-party', title: 'Shape Party', icon: '⭐', color: '#26a69a' },
+    meta: { id: 'shape-party', title: 'Shape Party', icon: '💠', color: '#26a69a' },
     load: () => import('./shape-party').then((m) => new m.ShapeParty()),
   },
   {

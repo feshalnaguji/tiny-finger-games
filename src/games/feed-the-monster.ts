@@ -46,14 +46,22 @@ export class FeedTheMonster implements Game {
     ctx.input.onDown((p) => {
       this.gaze = { x: p.x, y: p.y };
       const fruit = this.fruitAt(p.x, p.y);
-      if (fruit?.flying === 0) {
-        fruit.flying = 0.0001;
-        fruit.fromX = fruit.x;
-        fruit.fromY = fruit.y;
-        this.ctx.audio.pop(0.35);
-        this.ctx.bump();
-      }
+      if (fruit?.flying === 0) this.feed(fruit);
     });
+    // any key flings a random fruit into the mouth
+    ctx.input.onKey(() => {
+      const resting = this.fruits.filter((f) => f.flying === 0);
+      const fruit = resting[Math.floor(Math.random() * resting.length)];
+      if (fruit) this.feed(fruit);
+    });
+  }
+
+  private feed(fruit: Fruit): void {
+    fruit.flying = 0.0001;
+    fruit.fromX = fruit.x;
+    fruit.fromY = fruit.y;
+    this.ctx.audio.pop(0.35);
+    this.ctx.bump();
   }
 
   update(dt: number): void {

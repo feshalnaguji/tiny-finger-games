@@ -117,7 +117,14 @@ export class App {
     this.gameHost.style.display = '';
     this.gameHost.style.background = '';
 
-    const game = await def.load();
+    // if a fresh deploy invalidated this session's lazy chunks, the import fails —
+    // restart cleanly to the new version instead of stranding the child on a blank screen
+    const game = await def.load().catch(() => null);
+    if (!game) {
+      this.kidlock.release();
+      location.reload();
+      return;
+    }
     const scope = this.input.createScope();
     const ctx: GameContext = {
       host: this.gameHost,
@@ -127,6 +134,8 @@ export class App {
       settings: () => this.settings.snapshot,
       bump: () => {
         this.stats.bump(def.meta.id);
+        // a whisper of haptic feedback on devices that support it (not in calm mode)
+        if (!this.settings.snapshot.calm && 'vibrate' in navigator) navigator.vibrate(8);
       },
       width: this.root.clientWidth,
       height: this.root.clientHeight,
@@ -176,6 +185,12 @@ export class App {
     });
     this.appScope.onKey((k) => {
       if (!k.repeat) this.gate.key(k.key);
+      // on the menu, keys have no game to reach — still reward the smash
+      const panelOpen = this.panel.el.style.display !== 'none';
+      if (!k.repeat && !this.activeGame && !panelOpen && this.menu.isShowingGrid) {
+        this.menu.pulseRandom();
+        this.audio.randomNote(0.4);
+      }
     });
     this.gate.onOpen = () => {
       this.openPanel();
@@ -184,16 +199,23 @@ export class App {
 
   private openPanel(): void {
     if (!this.kidlock.engaged) return;
-    this.paused = true;
-    this.audio.suspend();
+    this.setPaused(true);
     this.gateRing.style.display = 'none';
     this.panel.show();
   }
 
   private closePanel(): void {
     this.panel.hide();
-    this.paused = false;
-    this.audio.resume();
+    this.setPaused(false);
+  }
+
+  /** Pausing also mutes the game's input scope — keys typed into the parent panel
+   *  must never reach the game (state changes, speech). */
+  private setPaused(paused: boolean): void {
+    this.paused = paused;
+    if (this.activeScope) this.activeScope.enabled = !paused;
+    if (paused) this.audio.suspend();
+    else this.audio.resume();
   }
 
   private exitAndUnlock(): void {
@@ -216,15 +238,11 @@ export class App {
     };
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') {
-        this.paused = true;
-        this.audio.suspend();
+        this.setPaused(true);
       } else {
         this.wakeLock.reacquire();
         const panelOpen = this.panel.el.style.display !== 'none';
-        if (!panelOpen) {
-          this.paused = false;
-          this.audio.resume();
-        }
+        if (!panelOpen) this.setPaused(false);
       }
     });
     const ro = new ResizeObserver(() => {

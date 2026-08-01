@@ -90,6 +90,7 @@ export class SpaceSmash implements Game {
   private smash(x: number, y: number, letter: string | null): void {
     this.ctx.bump();
     this.spawnStar(false);
+    if (this.things.length > 100) this.things.shift();
 
     if (letter) {
       this.things.push({

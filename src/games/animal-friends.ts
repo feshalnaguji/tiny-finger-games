@@ -70,6 +70,20 @@ export class AnimalFriends implements Game {
     });
     ctx.host.appendChild(grid);
 
+    // each key maps to one animal, so keyboard smashing tours the whole farm
+    ctx.input.onKey((k) => {
+      if (k.repeat) return;
+      let hash = 0;
+      for (const c of k.code) hash = (hash * 31 + c.charCodeAt(0)) % 997;
+      const i = hash % FRIENDS.length;
+      const friend = FRIENDS[i];
+      const card = this.cards[i];
+      if (friend && card) {
+        const r = card.getBoundingClientRect();
+        this.greet(friend, card, r.left + r.width / 2, r.top + r.height / 2);
+      }
+    });
+
     this.scheduleIdleWiggle();
   }
 

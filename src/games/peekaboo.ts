@@ -28,6 +28,7 @@ const DOOR_COLORS = ['#e57373', '#ffb74d', '#4db6ac', '#7986cb', '#f06292', '#ae
 export class Peekaboo implements Game {
   private ctx!: GameContext;
   private timers: number[] = [];
+  private openFns: (() => void)[] = [];
 
   init(ctx: GameContext): void {
     this.ctx = ctx;
@@ -42,6 +43,14 @@ export class Peekaboo implements Game {
     `;
     for (let i = 0; i < 4; i++) this.buildDoor(grid, i);
     ctx.host.appendChild(grid);
+
+    // keys map to doors, so keyboard smashing plays peekaboo too
+    ctx.input.onKey((k) => {
+      if (k.repeat) return;
+      let hash = 0;
+      for (const c of k.code) hash = (hash * 31 + c.charCodeAt(0)) % 997;
+      this.openFns[hash % this.openFns.length]?.();
+    });
   }
 
   resize(): void {
@@ -51,6 +60,7 @@ export class Peekaboo implements Game {
   destroy(): void {
     for (const t of this.timers) clearTimeout(t);
     this.timers = [];
+    this.openFns = [];
     this.ctx.host.style.background = '';
   }
 
@@ -79,7 +89,7 @@ export class Peekaboo implements Game {
     grid.appendChild(frame);
 
     let busy = false;
-    frame.addEventListener('pointerdown', () => {
+    const open = () => {
       if (busy) return;
       busy = true;
       this.ctx.bump();
@@ -120,6 +130,8 @@ export class Peekaboo implements Game {
           busy = false;
         }, 2100),
       );
-    });
+    };
+    frame.addEventListener('pointerdown', open);
+    this.openFns.push(open);
   }
 }

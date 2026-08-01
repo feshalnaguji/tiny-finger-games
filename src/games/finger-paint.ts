@@ -58,6 +58,30 @@ export class FingerPaint implements Game {
       }
     });
     ctx.input.onUp((p) => this.active.delete(p.id));
+    // key presses splat paint dabs — keyboard babies get to paint too
+    ctx.input.onKey(() => {
+      const w = this.layer.width || 400;
+      const h = this.layer.height || 400;
+      const x = w * (0.1 + Math.random() * 0.8);
+      const y = h * (0.1 + Math.random() * 0.8);
+      const dab: Point[] = [];
+      for (let a = 0; a < Math.PI * 2.2; a += 0.9) {
+        dab.push({ x: x + Math.cos(a) * 8, y: y + Math.sin(a) * 8, t: this.now, hue: this.hue });
+      }
+      this.strokes.push(dab);
+      this.playNote(y);
+      this.ctx.bump();
+      this.ctx.particles.burst({
+        x,
+        y,
+        count: 6,
+        colors: [`hsl(${this.hue} 90% 75%)`, '#ffffff'],
+        speed: [30, 120],
+        size: [2, 4],
+        ttl: [0.3, 0.7],
+        gravity: 60,
+      });
+    });
   }
 
   update(dt: number): void {

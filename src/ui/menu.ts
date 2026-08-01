@@ -28,6 +28,25 @@ export class Menu {
     this.el.style.display = 'none';
   }
 
+  get isShowingGrid(): boolean {
+    return this.started && this.el.style.display !== 'none';
+  }
+
+  /** Keyboard smashing on the menu wiggles a random card so keys always do something. */
+  pulseRandom(): void {
+    const cards = this.el.querySelectorAll<HTMLElement>('.menu__card');
+    const card = cards[Math.floor(Math.random() * cards.length)];
+    card?.animate(
+      [
+        { transform: 'scale(1) rotate(0deg)' },
+        { transform: 'scale(1.15) rotate(-5deg)' },
+        { transform: 'scale(1.15) rotate(5deg)' },
+        { transform: 'scale(1) rotate(0deg)' },
+      ],
+      { duration: 350, easing: 'ease-in-out' },
+    );
+  }
+
   private renderSplash(): void {
     this.el.classList.add('splash');
     this.el.innerHTML = `
