@@ -67,6 +67,13 @@ export class RainbowPiano implements Game {
     ctx.input.onUp((p) => this.lastBar.delete(p.id));
     ctx.input.onKey((k) => {
       if (k.repeat) return;
+      // real MIDI pitches land on the matching bar (nearest C-major degree)
+      if (k.code.startsWith('Midi')) {
+        const semitone = Number(k.code.slice(4)) % 12;
+        const degree = [0, 0, 1, 1, 2, 3, 3, 4, 4, 5, 5, 6][semitone] ?? 0;
+        this.play(degree, false);
+        return;
+      }
       let hash = 0;
       for (const c of k.code) hash = (hash * 31 + c.charCodeAt(0)) % 997;
       this.play(hash % 8, false);

@@ -204,6 +204,20 @@ body.calm .menu__card-badge {
   animation: none;
 }
 
+/* Color Pop floating dots */
+@keyframes dot-float {
+  from {
+    translate: 0 -1.2vmin;
+  }
+  to {
+    translate: 0 1.2vmin;
+  }
+}
+
+body.calm [style*='dot-float'] {
+  animation: none !important;
+}
+
 /* ---------- Game host ---------- */
 .game-host {
   position: absolute;

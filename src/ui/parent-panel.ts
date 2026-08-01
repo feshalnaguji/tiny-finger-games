@@ -6,6 +6,8 @@ interface PanelCallbacks {
   onResume: () => void;
   onSwitchGame: (def: GameDefinition) => void;
   onExit: () => void;
+  midiSupported: () => boolean;
+  onConnectMidi: () => Promise<boolean>;
 }
 
 /** Adult-styled overlay reachable only through the parent gate. */
@@ -63,6 +65,15 @@ export class ParentPanel {
           🐾 ${this.stats.totalTaps.toLocaleString()} total boops across ${this.stats.sessions.toLocaleString()} visits
         </p>
 
+        ${
+          this.callbacks.midiSupported()
+            ? `<h3>Extras</h3>
+               <button class="parent-panel__game" data-act="midi">🎹 Connect a piano keyboard (MIDI)</button>
+               <p class="parent-panel__info">Gamepads work automatically — any button plays.</p>`
+            : `<h3>Extras</h3>
+               <p class="parent-panel__info">Gamepads work automatically — any button plays.</p>`
+        }
+
         <h3>How the lock works</h3>
         <p class="parent-panel__info">
           Your child can play and switch games, but can't leave. To open this panel:
@@ -96,6 +107,17 @@ export class ParentPanel {
         if (def) this.callbacks.onSwitchGame(def);
       });
     }
+
+    const midiBtn = this.el.querySelector<HTMLButtonElement>('[data-act="midi"]');
+    midiBtn?.addEventListener('click', () => {
+      midiBtn.disabled = true;
+      midiBtn.textContent = '🎹 Connecting…';
+      void this.callbacks.onConnectMidi().then((ok) => {
+        midiBtn.textContent = ok
+          ? '🎹 MIDI on — plug in and play!'
+          : '🎹 Not allowed or unavailable';
+      });
+    });
 
     const exit = this.el.querySelector<HTMLButtonElement>('[data-act="exit"]');
     exit?.addEventListener('click', () => {

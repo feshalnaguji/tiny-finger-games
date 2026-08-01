@@ -1,6 +1,8 @@
 import { AudioEngine } from './engine/audio';
 import { CanvasLayer } from './engine/canvas';
 import { dailyIndex } from './engine/daily';
+import { GamepadInput } from './engine/gamepad';
+import { MidiInput } from './engine/midi';
 import { InputManager, type InputScope } from './engine/input';
 import { ParticleSystem } from './engine/particles';
 import { SettingsStore, type SettingsSnapshot } from './engine/settings';
@@ -27,6 +29,8 @@ export class App {
   private kidlock = new KidLock();
   private gate = new ParentGate();
   private wakeLock = new WakeLock();
+  private gamepad = new GamepadInput();
+  private midi = new MidiInput();
 
   private input: InputManager;
   private appScope: InputScope;
@@ -71,6 +75,8 @@ export class App {
       onExit: () => {
         this.exitAndUnlock();
       },
+      midiSupported: () => this.midi.supported,
+      onConnectMidi: () => this.midi.enable(),
     });
 
     this.gameHost = document.createElement('div');
@@ -103,6 +109,13 @@ export class App {
     });
     this.wireGate();
     this.wireLifecycle();
+    // gamepad buttons and MIDI notes act as key presses — every game understands keys
+    this.gamepad.onPress = (code) => {
+      this.input.emitKey({ code, key: '', repeat: false });
+    };
+    this.midi.onNote = (code) => {
+      this.input.emitKey({ code, key: '', repeat: false });
+    };
     this.lastT = performance.now();
     requestAnimationFrame((t) => {
       this.loop(t);
@@ -298,6 +311,8 @@ export class App {
   private loop(t: number): void {
     const dt = Math.min((t - this.lastT) / 1000, 0.05);
     this.lastT = t;
+
+    if (!this.paused) this.gamepad.poll();
 
     if (!this.paused) {
       this.activeGame?.update?.(dt);

@@ -1,6 +1,6 @@
 # Tiny Paws 🐾
 
-**A safe, fullscreen play site for toddlers (ages 1+): fifteen mini-games behind a kid-lock, so
+**A safe, fullscreen play site for toddlers (ages 1+): eighteen mini-games behind a kid-lock, so
 little fingers can smash away without ever leaving the app.**
 
 🎮 **Play it:** https://feshalnaguji.github.io/tiny-finger-games/
@@ -9,7 +9,7 @@ Inspired by keyboard-smash toys like tinyfingers.net — then pushed further in 
 a whole arcade instead of one toy, a real kid-lock instead of hope, and everything synthesized
 in the browser (no downloads, no ads, no accounts, no tracking, works offline).
 
-## The 15 games
+## The 18 games
 
 |     | Game             | What happens                                                                   |
 | --- | ---------------- | ------------------------------------------------------------------------------ |
@@ -28,6 +28,9 @@ in the browser (no downloads, no ads, no accounts, no tracking, works offline).
 | 🚗  | Beep Beep Cars   | Tap to send vehicles driving across a sunny road; tap them back for honks      |
 | 🍬  | Pop Pad          | A pop-it fidget board with pitch-mapped pops; pop them all for confetti        |
 | 🌼  | Garden Friends   | Plant flowers with a tap; bees and a butterfly fly over to visit them          |
+| 🍎  | First Words      | Big everyday things that say their name when tapped — first vocabulary         |
+| 🌈  | Color Pop        | "Find the blue ones!" — touch the target color and it celebrates; no failing   |
+| 🌙  | Sleepy Stars     | The wind-down screen: a still night sky where touched stars ring soft chimes   |
 
 ✨ **Daily surprise:** every day one game wears a glowing badge on the menu — opening it starts
 with confetti and it plays with extra sparkle all day.
@@ -37,6 +40,10 @@ gets a response within one frame. Full multi-touch. Touch targets over 2 cm. **E
 fully keyboard-playable** — smashing any key pops a bubble, launches a firework, opens a door,
 feeds the monster — so the youngest keyboard-smashers get the whole arcade, and even the menu
 sings back when keys are pressed.
+
+**Gamepads work out of the box** — any button on any connected controller acts like a key press
+in every game. **MIDI keyboards** connect from the parent panel (🎹 button); real piano keys play
+the matching bars in Rainbow Piano and act as key presses everywhere else.
 
 ## The kid-lock 🔒
 

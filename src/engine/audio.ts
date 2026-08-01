@@ -76,7 +76,13 @@ export class AudioEngine {
 
   note(
     midi: number,
-    opts: { wave?: OscillatorType; dur?: number; vel?: number; delay?: number } = {},
+    opts: {
+      wave?: OscillatorType;
+      dur?: number;
+      vel?: number;
+      delay?: number;
+      attack?: number;
+    } = {},
   ): void {
     this.tone({
       freq: midiToFreq(midi),
@@ -84,6 +90,7 @@ export class AudioEngine {
       dur: opts.dur ?? 0.45,
       vel: opts.vel ?? 0.5,
       delay: opts.delay ?? 0,
+      attack: opts.attack ?? 0.005,
     });
   }
 

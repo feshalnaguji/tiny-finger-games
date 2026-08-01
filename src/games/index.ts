@@ -65,4 +65,16 @@ export const games: GameDefinition[] = [
     meta: { id: 'garden-friends', title: 'Garden Friends', icon: '🌼', color: '#9ccc65' },
     load: () => import('./garden-friends').then((m) => new m.GardenFriends()),
   },
+  {
+    meta: { id: 'first-words', title: 'First Words', icon: '🍎', color: '#26a69a' },
+    load: () => import('./first-words').then((m) => new m.FirstWords()),
+  },
+  {
+    meta: { id: 'color-pop', title: 'Color Pop', icon: '🌈', color: '#ab47bc' },
+    load: () => import('./color-pop').then((m) => new m.ColorPop()),
+  },
+  {
+    meta: { id: 'sleepy-stars', title: 'Sleepy Stars', icon: '🌙', color: '#3949ab' },
+    load: () => import('./sleepy-stars').then((m) => new m.SleepyStars()),
+  },
 ];
