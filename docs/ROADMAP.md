@@ -26,7 +26,20 @@ version it landed in.
 - ✅ Audio polish: reworked duck/cat/dog/lion voices, softer car engine, loudness balance (v2.1)
 - ✅ Menu rows center at every width; launch ops checklist in docs/LAUNCH.md (v2.1)
 
+> **v2.1 lineup review (2026-08-02):** all 24 games confirmed — no replacements. Every game
+> owns a distinct interaction-type × education-area slot and an indexed SEO landing page;
+> weakest entries (Star Catcher, Pop Pad) still hold unique mechanics. Additions beat
+> replacements; the two below add capabilities no current game has.
+
 ## Next candidates
+
+- **Sticker Book 🖼️** — drag emoji stickers onto scenes (meadow, sea, space), saved in
+  localStorage per device. Adds the first _persistent creation_ — "show daddy what you made" is
+  the top repeat-visit driver in toddler apps. Needs a drag interaction (new for us) and a
+  parent-panel "clear creations" control.
+- **I Spy 🔍** — "find the butterfly!" spoken prompt over a busy emoji scene; found things
+  celebrate, missed taps name what was touched (mirrors Color Pop's no-fail teaching). Fills
+  the missing seek-and-find genre; strong "I spy games for toddlers" query.
 
 - **Parent PIN option** — an alternative to the corner-hold gate for households where an older
   sibling has cracked the gesture; simple 4-digit pad in the parent panel, stored locally.

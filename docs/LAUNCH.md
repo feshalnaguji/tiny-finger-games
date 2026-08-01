@@ -15,6 +15,10 @@ top to bottom when launch time comes.
 Name candidates to check: `tinypawsgames.com`, `playtinypaws.com`, `tinypaws.app`,
 `tinypawsplay.com`. Prefer `.com`; `.app` (~$14/yr, forced HTTPS) is the fallback.
 
+> **Decide hosting together with the domain** — see `docs/HOSTING.md` for the full platform
+> comparison (Cloudflare Pages recommended: unlimited bandwidth, monetization-safe, anonymous
+> URL, private-repo capable) and the step-by-step migration runbook.
+
 ## 2. Connect the domain (5 minutes, code side is ready)
 
 1. Add `public/CNAME` containing the bare domain (one line).
