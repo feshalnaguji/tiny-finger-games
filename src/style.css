@@ -114,7 +114,8 @@ button {
   display: flex;
   flex-direction: column;
   background: linear-gradient(160deg, #2a1a5e 0%, #4527a0 55%, #7b1fa2 100%);
-  padding: max(3vmin, env(safe-area-inset-top)) 3vmin max(3vmin, env(safe-area-inset-bottom));
+  padding: max(3vmin, env(safe-area-inset-top)) max(5vmin, env(safe-area-inset-right))
+    max(3vmin, env(safe-area-inset-bottom)) max(5vmin, env(safe-area-inset-left));
 }
 
 .menu__header {
@@ -129,10 +130,22 @@ button {
 .menu__grid {
   flex: 1 1 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(9.5rem, 42vw), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(9.5rem, 40vw), 1fr));
   gap: 3vmin;
   align-content: center;
-  overflow: hidden;
+  /* breathing room so scaled/glowing cards never touch the screen edges,
+     and scroll (hidden scrollbar) instead of cropping on short screens */
+  padding: 1.5vmin;
+  width: 100%;
+  max-width: 110rem;
+  margin-inline: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.menu__grid::-webkit-scrollbar {
+  display: none;
 }
 
 .menu__card {
@@ -160,7 +173,7 @@ button {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.045);
+    transform: scale(1.03);
   }
 }
 
